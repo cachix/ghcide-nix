@@ -9,7 +9,7 @@
 
     $ nix-env -iA hie-core -f https://github.com/hercules-ci/hie-core-nix/tarball/master
 
-[Continue by following upstream instructions](https://github.com/digital-asset/daml/tree/master/compiler/hie-core#test-hie-core)
+## 3. [Continue by following upstream instructions](https://github.com/digital-asset/daml/tree/master/compiler/hie-core#test-hie-core)
 
 # FAQ
 
