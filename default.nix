@@ -1,15 +1,14 @@
 let
   pkgs = import ./nix {};
   pkgSet = pkgs.haskellnix.mkStackPkgSet {
-    stack-pkgs = import (pkgs.haskellnix.callStackToNix {
-      src = pkgs.hie-core-src;
-    });
+    stack-pkgs = import ./nix/stack/pkgs.nix;
     pkg-def-extras = [];
     modules = [
      { packages.Cabal.patches = [./nix/cabal.patch]; }
      { packages.happy.package.setup-depends = [pkgSet.config.hsPkgs.Cabal]; }
      { packages.pretty-show.package.setup-depends = [pkgSet.config.hsPkgs.Cabal]; }
-     { packages.cachix.components.library.build-tools = [ pkgs.boost ]; }
+     { packages.hie-core.src = pkgs.hie-core-src; }
+     { nonReinstallablePkgs = ["ghc-boot"]; }
     ];
   };
   packages = pkgSet.config.hsPkgs;
