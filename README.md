@@ -7,8 +7,9 @@
 
 ## 2. Install hie-core
 
-1. $ nix-env -iA hie-core -f https://github.com/hercules-ci/hie-core-nix/tarball/master
-2. [Continue with upstream steps](https://github.com/digital-asset/daml/tree/master/compiler/hie-core#test-hie-core)
+    $ nix-env -iA hie-core -f https://github.com/hercules-ci/hie-core-nix/tarball/master
+
+[Continue by following upstream instructions](https://github.com/digital-asset/daml/tree/master/compiler/hie-core#test-hie-core)
 
 # FAQ
 
