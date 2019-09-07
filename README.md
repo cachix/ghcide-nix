@@ -7,6 +7,16 @@
 
 ## 2. Install hie-core
 
+### On NixOS
+
+```nix
+environment.systemPackages = [
+  (import (builtins.fetchTarball "https://github.com/hercules-ci/hie-core-nix/tarball/master")).hie-core-ghc865
+];
+```
+
+### With Nix
+
     $ nix-env -iA hie-core-ghc865 -f https://github.com/hercules-ci/hie-core-nix/tarball/master
 
 ## 3. [Continue by following upstream instructions](https://github.com/digital-asset/daml/tree/master/compiler/hie-core#test-hie-core)
