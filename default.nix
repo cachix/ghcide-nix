@@ -1,1 +1,3 @@
-import ./nix {}
+{
+ inherit (import ./nix {}) hie-core-ghc865;
+}
