@@ -2,7 +2,7 @@
 with
   { overlay = _: pkgs:
     let
-      haskellnix = import sources."haskell.nix" {};
+      haskellnix = import sources."haskell.nix" { inherit pkgs; };
       mkHieCore =
         let
           pkgSet = haskellnix.mkStackPkgSet {
