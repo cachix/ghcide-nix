@@ -8,17 +8,14 @@ with
           pkgSet = haskellnix.mkStackPkgSet {
             stack-pkgs = import ./stack/pkgs.nix;
             pkg-def-extras = [];
-            modules = [
-              { packages.Cabal.patches = [./cabal.patch]; }
-              { packages.happy.package.setup-depends = [pkgSet.config.hsPkgs.Cabal]; }
-              { packages.pretty-show.package.setup-depends = [pkgSet.config.hsPkgs.Cabal]; }
-              { packages.hie-core.src = "${sources.daml}/compiler/hie-core"; }
-              { ghc.package = ghc; }
-              { nonReinstallablePkgs = ["ghc-boot" "binary" "process" "bytestring" "containers" "directory" 
+            modules = [{
+                packages.hie-core.src = "${sources.daml}/compiler/hie-core"; 
+                ghc.package = ghc; 
+                compiler.version = ghc.version;
+                nonReinstallablePkgs = ["ghc-boot" "binary" "process" "bytestring" "containers" "directory" 
                    "filepath" "hpc" "ghci" "terminfo" "time" "transformers" "unix" "text"]
                 ++ pkgs.lib.optionals (ghc.version == "8.8.1") [ "contravariant" ];
-              }
-            ];
+            }];
           };
           packages = pkgSet.config.hsPkgs;
         in packages.hie-core.components.exes.hie-core;
