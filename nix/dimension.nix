@@ -102,13 +102,13 @@
         in releases;
 
    */
-  dimension = name: m: f:
+  dimension = name: attrs: f:
     lib.mapAttrs
       (k: v:
        let o = f k v;
        in o // { recurseForDerivations = o.recurseForDerivations or true; }
       )
-      m
+      attrs
     // { meta.dimension.name = name; };
     
   # TODO: move this file somewhere (a flake?)
