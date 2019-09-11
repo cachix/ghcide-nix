@@ -1,4 +1,4 @@
-{ sources ? import ./sources.nix }:
+{ sources ? import ./sources.nix, system ? builtins.currentSystem }:
 with
   { overlay = _: pkgs:
     let
@@ -35,4 +35,4 @@ with
       };
   };
 import sources.nixpkgs
-  { overlays = [ overlay ] ; config = {}; }
+  { overlays = [ overlay ] ; config = {}; inherit system; }
