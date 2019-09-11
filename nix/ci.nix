@@ -10,14 +10,8 @@ in
     # "x86_64-darwin" = {};
   } (system: {}:
 
-    dimension "Nixpkgs release" {
-      "nixpkgs-19_03".nixpkgs = sources.nixpkgs;
-      # "nixpkgs-19_09".nixpkgs = sources."nixos-19.09";
-    } (_nixpkgsRelease: { nixpkgs }:
+    import ../default.nix {
+      pkgs = import ./default.nix { inherit system; };
+    }
 
-      import ../default.nix {
-        pkgs = import ./default.nix { inherit system; };
-      }
-
-    )
   )
