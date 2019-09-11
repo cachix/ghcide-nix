@@ -30,6 +30,7 @@ with
          };
          devTools = {
            inherit (import sources.niv {}) niv;
+           inherit (haskellnix) nix-tools;
          };
       };
   };
