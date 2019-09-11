@@ -5,28 +5,26 @@
     $ nix-env -iA cachix -f https://cachix.org/api/v1/install
     $ cachix use hercules-ci
 
-## 2. Install hie-core
+## 2. Install ghcide
+
+Currently available for `ghc865`, `ghc864` and `ghc844`:
 
 ### On NixOS
 
 ```nix
 environment.systemPackages = [
-  (import (builtins.fetchTarball "https://github.com/hercules-ci/hie-core-nix/tarball/master")).hie-core-ghc865
+  (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/master")).ghcide-ghc865
 ];
 ```
 
 ### With Nix
 
-    $ nix-env -iA hie-core-ghc865 -f https://github.com/hercules-ci/hie-core-nix/tarball/master
+    $ nix-env -iA ghcide-ghc865 -f https://github.com/hercules-ci/ghcide-nix/tarball/master
 
-## 3. [Continue by following upstream instructions](https://github.com/digital-asset/daml/tree/master/compiler/hie-core#test-hie-core)
+## 3. [Continue by following upstream instructions](https://github.com/digital-asset/ghcide#test-ghcide)
 
 # FAQ
 
 ## Why does this repo sit in hercules-ci organization?
 
-It was the easiest to setup, it will hopefully merge with hie-core.
-
-## Why is only GHC 8.6.5 supported?
-
-This is a proof of concept, all other GHC versions are yet to be supported.
+It was the easiest to setup, it will [hopefully merge with hie-core](https://github.com/hercules-ci/ghcide-nix)
