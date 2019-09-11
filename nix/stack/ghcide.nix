@@ -2,13 +2,13 @@
   {
     flags = {};
     package = {
-      specVersion = "1.18";
-      identifier = { name = "hie-core"; version = "0"; };
-      license = "BSD-3-Clause";
+      specVersion = "1.20";
+      identifier = { name = "ghcide"; version = "0.0.2"; };
+      license = "Apache-2.0";
       copyright = "Digital Asset 2018-2019";
       maintainer = "Digital Asset";
       author = "Digital Asset";
-      homepage = "https://github.com/digital-asset/daml#readme";
+      homepage = "https://github.com/digital-asset/ghcide#readme";
       url = "";
       synopsis = "The core of an IDE";
       description = "A library for building Haskell IDE's on top of the GHC API.";
@@ -53,7 +53,7 @@
           ] ++ (pkgs.lib).optional (!system.isWindows) (hsPkgs.unix);
         };
       exes = {
-        "hie-core" = {
+        "ghcide" = {
           depends = [
             (hsPkgs.base)
             (hsPkgs.containers)
@@ -65,7 +65,7 @@
             (hsPkgs.ghc)
             (hsPkgs.haskell-lsp)
             (hsPkgs.hie-bios)
-            (hsPkgs.hie-core)
+            (hsPkgs.ghcide)
             (hsPkgs.optparse-applicative)
             (hsPkgs.shake)
             (hsPkgs.text)
@@ -73,7 +73,7 @@
           };
         };
       tests = {
-        "hie-core-tests" = {
+        "ghcide-tests" = {
           depends = [
             (hsPkgs.base)
             (hsPkgs.containers)
@@ -88,9 +88,9 @@
             (hsPkgs.text)
             ];
           build-tools = [
-            (hsPkgs.buildPackages.hie-core or (pkgs.buildPackages.hie-core))
+            (hsPkgs.buildPackages.ghcide or (pkgs.buildPackages.ghcide))
             ];
           };
         };
       };
-    } // rec { src = (pkgs.lib).mkDefault ../../../../../../.././.; }
+    } // rec { src = (pkgs.lib).mkDefault ../../.././.; }

@@ -1,15 +1,4 @@
 {
-    "daml": {
-        "homepage": "https://daml.com/",
-        "url": "https://github.com/digital-asset/daml/archive/aa1e95173a1eeb278b473394a4613fa7e9227ab2.tar.gz",
-        "owner": "digital-asset",
-        "branch": "master",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "repo": "daml",
-        "sha256": "0x9k59a82v7ih9hr5zvxc9jf55sxjs4hpa1x1gz54hs52d5nzjf8",
-        "description": "The DAML smart contract language",
-        "rev": "aa1e95173a1eeb278b473394a4613fa7e9227ab2"
-    },
     "haskell.nix": {
         "homepage": "https://input-output-hk.github.io/haskell.nix",
         "url": "https://github.com/input-output-hk/haskell.nix/archive/0992ede70e4ea845751dcbcf89b62e5f3a92a30e.tar.gz",
@@ -31,6 +20,18 @@
         "sha256": "0b92yhkj3pq58svyrx7jp0njhaykwr29079izqn6qs638v8zvhl2",
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
         "rev": "e19054ab3cd5b7cc9a01d0efc71c8fe310541065"
+    },
+    "ghcide": {
+        "homepage": "",
+        "url": "https://github.com/digital-asset/ghcide/archive/f66c886217e0ba24d21011185cb513ecc7908184.tar.gz",
+        "owner": "digital-asset",
+        "branch": "master",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "ghcide",
+        "type": "tarball",
+        "sha256": "1fb3s09cclgdwak6698ald2rdih574pnkjijixr3qc271cxnpqv3",
+        "description": "A library for building Haskell IDE tooling",
+        "rev": "f66c886217e0ba24d21011185cb513ecc7908184"
     },
     "niv": {
         "homepage": "https://github.com/nmattia/niv",
