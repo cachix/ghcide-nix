@@ -1,3 +1,1 @@
-{
- inherit (import ./nix {}) hie-core-ghc865;
-}
+(import ./nix {}).export
