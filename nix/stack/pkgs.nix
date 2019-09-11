@@ -2,7 +2,7 @@
   extras = hackage:
     {
       packages = {} // {
-        hie-core = ./hie-core.nix;
+        ghcide = ./ghcide.nix;
         haskell-lsp = ./haskell-lsp.nix;
         haskell-lsp-types = ./haskell-lsp-types.nix;
         lsp-test = ./lsp-test.nix;

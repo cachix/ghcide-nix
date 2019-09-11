@@ -1,0 +1,9 @@
+rm -rf ghcide
+$(nix-build nix -A niv)/bin/niv update ghcide
+rev=$(nix-instantiate --eval -E "(builtins.fromJSON (builtins.readFile ./nix/sources.json)).ghcide.rev")
+git clone https://github.com/digital-asset/ghcide
+pushd ghcide
+  git checkout $rev
+  $(nix-build ../nix -A haskellnix.nix-tools --no-out-link)/bin/stack-to-nix -o ../nix/stack
+popd
+rm -rf ghcide
