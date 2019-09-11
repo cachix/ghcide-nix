@@ -1,1 +1,2 @@
-(import ./nix {}).export
+{ pkgs ? import ./nix {} }:
+pkgs.export

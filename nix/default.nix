@@ -1,4 +1,4 @@
-{ sources ? import ./sources.nix }:
+{ sources ? import ./sources.nix, system ? builtins.currentSystem }:
 with
   { overlay = _: pkgs:
     let
@@ -25,9 +25,13 @@ with
           ghcide-ghc864 = mkHieCore pkgs.haskell.compiler.ghc864;
           ghcide-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
          };
-         inherit (import sources.niv {}) niv;
+
+         devTools = {
+           inherit (import sources.niv {}) niv;
+           inherit (haskellnix) nix-tools;
+         };
          inherit haskellnix;
       };
   };
 import sources.nixpkgs
-  { overlays = [ overlay ] ; config = {}; }
+  { overlays = [ overlay ] ; config = {}; inherit system; }

@@ -1,4 +1,4 @@
-with { pkgs = import ./nix {}; };
+{ pkgs ? import ./nix {} }:
 pkgs.mkShell
-  { buildInputs = [ pkgs.niv ];
+  { buildInputs = pkgs.lib.attrValues pkgs.devTools;
   }
