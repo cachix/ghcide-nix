@@ -23,10 +23,10 @@ with
           packages = pkgSet.config.hsPkgs;
         in packages.hie-core.components.exes.hie-core;
     in { export = {
-          hie-core-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
+          # hie-core-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
           hie-core-ghc865 = mkHieCore pkgs.haskell.compiler.ghc865;
           hie-core-ghc864 = mkHieCore pkgs.haskell.compiler.ghc864;
-          hie-core-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
+          # hie-core-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
          };
          inherit (import sources.niv {}) niv;
       };
