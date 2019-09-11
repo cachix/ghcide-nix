@@ -1,0 +1,5 @@
+rm -rf ghcide
+git clone https://github.com/digital-asset/ghcide
+cd ghcide
+$(nix-build ../nix -A haskellnix.nix-tools --no-out-link)/bin/stack-to-nix -o ../nix/stack
+

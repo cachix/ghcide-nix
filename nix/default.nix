@@ -26,6 +26,7 @@ with
           # hie-core-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
          };
          inherit (import sources.niv {}) niv;
+         inherit haskellnix;
       };
   };
 import sources.nixpkgs
