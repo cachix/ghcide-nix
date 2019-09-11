@@ -1,3 +1,4 @@
 result
+result-*
 nix/stack/default.nix
 ghcide
