@@ -13,7 +13,7 @@ Currently available for `ghc865`, `ghc864` and `ghc844`:
 
 ```nix
 environment.systemPackages = [
-  (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/master")).ghcide-ghc865
+  (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/master") {}).ghcide-ghc865
 ];
 ```
 
