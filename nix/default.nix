@@ -3,7 +3,7 @@ with
   { overlay = _: pkgs:
     let
       haskellnix = import sources."haskell.nix" { inherit pkgs; };
-      mkHieCore = ghc:
+      mkPackages = ghc:
         let
           pkgSet = haskellnix.mkStackPkgSet {
             stack-pkgs = import ./stack/pkgs.nix;
@@ -17,13 +17,16 @@ with
                 ++ pkgs.lib.optionals (ghc.version == "8.8.1") [ "contravariant" ];
             }];
           };
-          packages = pkgSet.config.hsPkgs;
+        in pkgSet.config.hsPkgs;
+      mkHieCore = ghc:
+        let packages = mkPackages ghc;
         in packages.ghcide.components.exes.ghcide;
     in { export = {
           # ghcide-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
           ghcide-ghc865 = mkHieCore pkgs.haskell.compiler.ghc865;
           ghcide-ghc864 = mkHieCore pkgs.haskell.compiler.ghc864;
           ghcide-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
+          hie-bios = (mkPackages pkgs.haskell.compiler.ghc865).hie-bios.components.exes.hie-bios;
          };
 
          devTools = {
