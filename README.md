@@ -21,7 +21,31 @@ environment.systemPackages = [
 
     $ nix-env -iA ghcide-ghc865 -f https://github.com/hercules-ci/ghcide-nix/tarball/master
 
-## 3. [Continue by following upstream instructions](https://github.com/digital-asset/ghcide#test-ghcide)
+## 3. Install integration
+
+### VSCode mutable
+
+    code --install-extension $(nix-build -A vscode-extension.vsx)
+
+### VSCode immutable
+
+For the purists (or people who have a broken mutable setup)
+
+Home manager:
+
+    programs.vscode.extensions = [
+      (import ghcide-nix-src {}).vscode-extension.installed
+    ];
+
+Nixpkgs:
+
+    vscode-with-extensions.override {
+      vscodeExtensions = [
+        (import ~/h/ghcide-nix {}).vscode-extension.installed
+      ];
+    }
+
+## 4. [Following upstream project setup instructions](https://github.com/digital-asset/ghcide#test-ghcide)
 
 # FAQ
 
