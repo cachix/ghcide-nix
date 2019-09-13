@@ -27,6 +27,7 @@ with
           ghcide-ghc864 = mkHieCore pkgs.haskell.compiler.ghc864;
           ghcide-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
           hie-bios = (mkPackages pkgs.haskell.compiler.ghc865).hie-bios.components.exes.hie-bios;
+          vscode-extension = pkgs.callPackage ./extension {};
          };
 
          devTools = {
