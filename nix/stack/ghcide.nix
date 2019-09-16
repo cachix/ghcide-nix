@@ -1,6 +1,6 @@
 { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
   {
-    flags = {};
+    flags = { ghc-lib = false; };
     package = {
       specVersion = "1.20";
       identifier = { name = "ghcide"; version = "0.0.2"; };
@@ -16,7 +16,7 @@
       };
     components = {
       "library" = {
-        depends = [
+        depends = ([
           (hsPkgs.aeson)
           (hsPkgs.async)
           (hsPkgs.base)
@@ -28,9 +28,6 @@
           (hsPkgs.directory)
           (hsPkgs.extra)
           (hsPkgs.filepath)
-          (hsPkgs.ghc-boot-th)
-          (hsPkgs.ghc-boot)
-          (hsPkgs.ghc)
           (hsPkgs.hashable)
           (hsPkgs.haskell-lsp-types)
           (hsPkgs.haskell-lsp)
@@ -50,7 +47,13 @@
           (hsPkgs.transformers)
           (hsPkgs.unordered-containers)
           (hsPkgs.utf8-string)
-          ] ++ (pkgs.lib).optional (!system.isWindows) (hsPkgs.unix);
+          ] ++ (if flags.ghc-lib
+          then [ (hsPkgs.ghc-lib) (hsPkgs.ghc-lib-parser) ]
+          else [
+            (hsPkgs.ghc-boot-th)
+            (hsPkgs.ghc-boot)
+            (hsPkgs.ghc)
+            ])) ++ (pkgs.lib).optional (!system.isWindows) (hsPkgs.unix);
         };
       exes = {
         "ghcide" = {
@@ -79,6 +82,7 @@
             (hsPkgs.containers)
             (hsPkgs.extra)
             (hsPkgs.filepath)
+            (hsPkgs.ghc)
             (hsPkgs.haskell-lsp-types)
             (hsPkgs.lens)
             (hsPkgs.lsp-test)
