@@ -1,47 +1,47 @@
 {
-    "haskell.nix": {
-        "homepage": "https://input-output-hk.github.io/haskell.nix",
-        "url": "https://github.com/input-output-hk/haskell.nix/archive/0992ede70e4ea845751dcbcf89b62e5f3a92a30e.tar.gz",
-        "owner": "input-output-hk",
-        "branch": "master",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "repo": "haskell.nix",
-        "sha256": "0jj8smi1j8in8lb4bi2ffymkykf2s95ybmy5xdsxawyw3gvp6h6a",
-        "description": "Alternative Haskell Infrastructure for Nixpkgs",
-        "rev": "0992ede70e4ea845751dcbcf89b62e5f3a92a30e"
-    },
-    "nixpkgs": {
-        "homepage": "https://github.com/NixOS/nixpkgs",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/e19054ab3cd5b7cc9a01d0efc71c8fe310541065.tar.gz",
-        "owner": "NixOS",
-        "branch": "nixos-unstable",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "repo": "nixpkgs-channels",
-        "sha256": "0b92yhkj3pq58svyrx7jp0njhaykwr29079izqn6qs638v8zvhl2",
-        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
-        "rev": "e19054ab3cd5b7cc9a01d0efc71c8fe310541065"
-    },
     "ghcide": {
-        "homepage": "",
-        "url": "https://github.com/digital-asset/ghcide/archive/f66c886217e0ba24d21011185cb513ecc7908184.tar.gz",
-        "owner": "digital-asset",
         "branch": "master",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "repo": "ghcide",
-        "type": "tarball",
-        "sha256": "1fb3s09cclgdwak6698ald2rdih574pnkjijixr3qc271cxnpqv3",
         "description": "A library for building Haskell IDE tooling",
-        "rev": "f66c886217e0ba24d21011185cb513ecc7908184"
+        "homepage": "",
+        "owner": "digital-asset",
+        "repo": "ghcide",
+        "rev": "f66c886217e0ba24d21011185cb513ecc7908184",
+        "sha256": "1fb3s09cclgdwak6698ald2rdih574pnkjijixr3qc271cxnpqv3",
+        "type": "tarball",
+        "url": "https://github.com/digital-asset/ghcide/archive/f66c886217e0ba24d21011185cb513ecc7908184.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "haskell.nix": {
+        "branch": "master",
+        "description": "Alternative Haskell Infrastructure for Nixpkgs",
+        "homepage": "https://input-output-hk.github.io/haskell.nix",
+        "owner": "input-output-hk",
+        "repo": "haskell.nix",
+        "rev": "0992ede70e4ea845751dcbcf89b62e5f3a92a30e",
+        "sha256": "0jj8smi1j8in8lb4bi2ffymkykf2s95ybmy5xdsxawyw3gvp6h6a",
+        "url": "https://github.com/input-output-hk/haskell.nix/archive/0992ede70e4ea845751dcbcf89b62e5f3a92a30e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
-        "homepage": "https://github.com/nmattia/niv",
-        "url": "https://github.com/nmattia/niv/archive/213315b65807ceae979da902875efaad1c53dc1d.tar.gz",
-        "owner": "nmattia",
         "branch": "master",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "repo": "niv",
-        "sha256": "1cczwqnmfs17i00gn8s9l7sf2s3h498gzlv7wrkdin4v31lydv08",
         "description": "Easy dependency management for Nix projects",
-        "rev": "213315b65807ceae979da902875efaad1c53dc1d"
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "213315b65807ceae979da902875efaad1c53dc1d",
+        "sha256": "1cczwqnmfs17i00gn8s9l7sf2s3h498gzlv7wrkdin4v31lydv08",
+        "url": "https://github.com/nmattia/niv/archive/213315b65807ceae979da902875efaad1c53dc1d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixos-unstable",
+        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "owner": "NixOS",
+        "repo": "nixpkgs-channels",
+        "rev": "e19054ab3cd5b7cc9a01d0efc71c8fe310541065",
+        "sha256": "0b92yhkj3pq58svyrx7jp0njhaykwr29079izqn6qs638v8zvhl2",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/e19054ab3cd5b7cc9a01d0efc71c8fe310541065.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
