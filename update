@@ -1,5 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 rm -rf ghcide
-$(nix-build nix -A niv)/bin/niv update ghcide
+
+niv="$(nix-build nix -A devTools.niv)/bin/niv"
+"$niv" update ghcide
+# stack-to-nix will select a newer snapshot, requiring new stackage.nix
+"$niv" update haskell.nix
+
 rev=$(nix-instantiate --eval -E "(builtins.fromJSON (builtins.readFile ./nix/sources.json)).ghcide.rev")
 git clone https://github.com/digital-asset/ghcide
 pushd ghcide
