@@ -22,7 +22,7 @@ with
         let packages = mkPackages ghc;
         in packages.ghcide.components.exes.ghcide;
     in { export = {
-          # ghcide-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
+          ghcide-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
           ghcide-ghc865 = mkHieCore pkgs.haskell.compiler.ghc865;
           ghcide-ghc864 = mkHieCore pkgs.haskell.compiler.ghc864;
           ghcide-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
