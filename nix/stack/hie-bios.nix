@@ -3,7 +3,7 @@
     flags = {};
     package = {
       specVersion = "1.10";
-      identifier = { name = "hie-bios"; version = "0.1.0"; };
+      identifier = { name = "hie-bios"; version = "0.1.1"; };
       license = "BSD-3-Clause";
       copyright = "";
       maintainer = "Matthew Pickering <matthewtpickering@gmail.com>";
@@ -11,7 +11,7 @@
       homepage = "https://github.com/mpickering/hie-bios";
       url = "";
       synopsis = "Set up a GHC API session";
-      description = "";
+      description = "Set up a GHC API session and obtain flags required to compile a source file";
       buildType = "Simple";
       };
     components = {
@@ -54,7 +54,7 @@
     } // {
     src = (pkgs.lib).mkDefault (pkgs.fetchgit {
       url = "https://github.com/mpickering/hie-bios.git";
-      rev = "89e4ba24f87aac9909d9814b0e8c51b679a0ccd4";
-      sha256 = "0pk13wf5h2ik2g1sdrhgfmq8078r61ynwpm0n6vxij7a30c0av39";
+      rev = "68c662ea1d0e7095ccf2a4e3d393fc524e769bfe";
+      sha256 = "09x47m8ljrrp9sm87s1xhzrxg7qh7dni5q28r90a4mrv4nk0zih3";
       });
     }
