@@ -27,4 +27,4 @@ environment.systemPackages = [
 
 ## Why does this repo sit in hercules-ci organization?
 
-It was the easiest to setup, it will [hopefully merge with hie-core](https://github.com/hercules-ci/ghcide-nix)
+It was the easiest to setup, it will [hopefully merge with ghcide](https://github.com/digital-asset/ghcide/issues/56)
