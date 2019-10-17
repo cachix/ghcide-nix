@@ -12,6 +12,6 @@ rev=$(nix eval --raw "(builtins.fromJSON (builtins.readFile ./nix/sources.json))
 git clone https://github.com/digital-asset/ghcide
 pushd ghcide
   git checkout $rev
-  $(nix-build ../nix -A haskellnix.nix-tools --no-out-link)/bin/stack-to-nix -o ../nix/stack
+  $(nix-build ../nix -A haskell-nix.nix-tools --no-out-link)/bin/stack-to-nix --stack-yaml=stack.yaml -o ../nix/stack
 popd
 rm -rf ghcide

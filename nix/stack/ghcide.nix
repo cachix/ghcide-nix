@@ -42,7 +42,7 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
     flags = { ghc-lib = false; };
     package = {
       specVersion = "1.20";
-      identifier = { name = "ghcide"; version = "0.0.3"; };
+      identifier = { name = "ghcide"; version = "0.0.4"; };
       license = "Apache-2.0";
       copyright = "Digital Asset 2018-2019";
       maintainer = "Digital Asset";
@@ -52,6 +52,7 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
       synopsis = "The core of an IDE";
       description = "A library for building Haskell IDE's on top of the GHC API.";
       buildType = "Simple";
+      isLocal = true;
       };
     components = {
       "library" = {
@@ -86,6 +87,7 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
           (hsPkgs."transformers" or (buildDepError "transformers"))
           (hsPkgs."unordered-containers" or (buildDepError "unordered-containers"))
           (hsPkgs."utf8-string" or (buildDepError "utf8-string"))
+          (hsPkgs."hslogger" or (buildDepError "hslogger"))
           ] ++ (if flags.ghc-lib
           then [
             (hsPkgs."ghc-lib" or (buildDepError "ghc-lib"))
@@ -96,10 +98,12 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
             (hsPkgs."ghc-boot" or (buildDepError "ghc-boot"))
             (hsPkgs."ghc" or (buildDepError "ghc"))
             ])) ++ (pkgs.lib).optional (!system.isWindows) (hsPkgs."unix" or (buildDepError "unix"));
+        buildable = true;
         };
       exes = {
         "ghcide" = {
           depends = [
+            (hsPkgs."hslogger" or (buildDepError "hslogger"))
             (hsPkgs."base" or (buildDepError "base"))
             (hsPkgs."containers" or (buildDepError "containers"))
             (hsPkgs."data-default" or (buildDepError "data-default"))
@@ -115,27 +119,34 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
             (hsPkgs."shake" or (buildDepError "shake"))
             (hsPkgs."text" or (buildDepError "text"))
             ];
+          buildable = if flags.ghc-lib then false else true;
           };
         };
       tests = {
         "ghcide-tests" = {
           depends = [
             (hsPkgs."base" or (buildDepError "base"))
+            (hsPkgs."bytestring" or (buildDepError "bytestring"))
             (hsPkgs."containers" or (buildDepError "containers"))
+            (hsPkgs."directory" or (buildDepError "directory"))
             (hsPkgs."extra" or (buildDepError "extra"))
             (hsPkgs."filepath" or (buildDepError "filepath"))
             (hsPkgs."ghc" or (buildDepError "ghc"))
+            (hsPkgs."ghcide" or (buildDepError "ghcide"))
+            (hsPkgs."ghc-typelits-knownnat" or (buildDepError "ghc-typelits-knownnat"))
             (hsPkgs."haskell-lsp-types" or (buildDepError "haskell-lsp-types"))
             (hsPkgs."lens" or (buildDepError "lens"))
             (hsPkgs."lsp-test" or (buildDepError "lsp-test"))
             (hsPkgs."parser-combinators" or (buildDepError "parser-combinators"))
             (hsPkgs."tasty" or (buildDepError "tasty"))
             (hsPkgs."tasty-hunit" or (buildDepError "tasty-hunit"))
+            (hsPkgs."tasty-expected-failure" or (buildDepError "tasty-expected-failure"))
             (hsPkgs."text" or (buildDepError "text"))
             ];
           build-tools = [
             (hsPkgs.buildPackages.ghcide or (pkgs.buildPackages.ghcide or (buildToolDepError "ghcide")))
             ];
+          buildable = if flags.ghc-lib then false else true;
           };
         };
       };
