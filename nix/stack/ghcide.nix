@@ -42,7 +42,7 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
     flags = { ghc-lib = false; };
     package = {
       specVersion = "1.20";
-      identifier = { name = "ghcide"; version = "0.0.3"; };
+      identifier = { name = "ghcide"; version = "0.0.4"; };
       license = "Apache-2.0";
       copyright = "Digital Asset 2018-2019";
       maintainer = "Digital Asset";

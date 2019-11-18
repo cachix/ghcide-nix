@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "digital-asset",
         "repo": "ghcide",
-        "rev": "cec3159ace4c430ccb6f58733245e67f7ebe30fb",
-        "sha256": "02c14ikba8lyi91dw0iyp072a9gqq82nms83hddkxf7y6i8m4a33",
+        "rev": "78aa9745798cfd730861e8c037cc481aa6b0dd43",
+        "sha256": "1w86jy44z45r2qfnsf2jz64vlp40d2sk0gc1xzl3f41kipajpgj2",
         "type": "tarball",
-        "url": "https://github.com/digital-asset/ghcide/archive/cec3159ace4c430ccb6f58733245e67f7ebe30fb.tar.gz",
+        "url": "https://github.com/digital-asset/ghcide/archive/78aa9745798cfd730861e8c037cc481aa6b0dd43.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "haskell.nix": {
