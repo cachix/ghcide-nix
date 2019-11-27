@@ -1,40 +1,42 @@
 { sources ? import ./sources.nix, system ? builtins.currentSystem }:
-with
-  { overlay = _: pkgs:
+
+let
+  overlay = _: pkgs:
     let
-      haskellnix = import sources."haskell.nix" { inherit pkgs; };
-      mkPackages = ghc:
+      mkPackages = { ghc, stackYaml }:
         let
-          pkgSet = haskellnix.mkStackPkgSet {
+          pkgSet = pkgs.haskell-nix.mkStackPkgSet {
             stack-pkgs = import ./stack/pkgs.nix;
             pkg-def-extras = [];
             modules = [{
                 packages.ghcide.src = sources.ghcide;
                 ghc.package = ghc; 
                 compiler.version = pkgs.lib.mkForce ghc.version;
+                reinstallableLibGhc = true;
                 nonReinstallablePkgs = ["ghc-boot" "binary" "process" "bytestring" "containers" "directory" 
-                   "filepath" "hpc" "ghci" "terminfo" "time" "transformers" "unix" "text"]
+                   "filepath" "hpc" "ghci" "terminfo" "time" "transformers" "unix" "text" "base"]
                 ++ pkgs.lib.optionals (ghc.version == "8.8.1") [ "contravariant" ];
             }];
           };
         in pkgSet.config.hsPkgs;
-      mkHieCore = ghc:
-        let packages = mkPackages ghc;
+      mkHieCore = args:
+        let packages = mkPackages args;
         in packages.ghcide.components.exes.ghcide;
     in { export = {
-          ghcide-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
-          ghcide-ghc865 = mkHieCore pkgs.haskell.compiler.ghc865;
-          ghcide-ghc864 = mkHieCore pkgs.haskell.compiler.ghc864;
-          ghcide-ghc844 = mkHieCore pkgs.haskell.compiler.ghc844;
-          hie-bios = (mkPackages pkgs.haskell.compiler.ghc865).hie-bios.components.exes.hie-bios;
+          #ghcide-ghc881 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc881; stackYaml = "stack881.yaml"; };
+          ghcide-ghc865 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; };
+          ghcide-ghc864 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc864; stackYaml = "stack.yaml"; };
+          ghcide-ghc844 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc844; stackYaml = "stack84.yaml"; };
+          hie-bios = (mkPackages { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; }).hie-bios.components.exes.hie-bios;
          };
 
          devTools = {
            inherit (import sources.niv {}) niv;
-           inherit (haskellnix) nix-tools;
          };
-         inherit haskellnix;
       };
-  };
-import sources.nixpkgs
-  { overlays = [ overlay ] ; config = {}; inherit system; }
+   haskellnix = import sources."haskell.nix";
+in import sources.nixpkgs {
+  overlays = haskellnix.overlays ++ [ overlay ];
+  config = haskellnix.config // {};
+  inherit system;
+}
