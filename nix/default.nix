@@ -22,6 +22,7 @@ let
               reinstallableLibGhc = true;
               # and adding this didn't compile
               packages.ghc.flags.ghci = pkgs.lib.mkForce true;
+              packages.ghci.flags.ghci = pkgs.lib.mkForce true;
             })];
           };
       mkHieCore = args@{...}:
