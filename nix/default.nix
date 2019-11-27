@@ -9,15 +9,17 @@ let
         pkgs.haskell-nix.stackProject {
             src = sources.ghcide;
             inherit stackYaml;
-            modules = [{
+            modules = [({config, ...}: {
               ghc.package = ghc;
               compiler.version = pkgs.lib.mkForce ghc.version;
               reinstallableLibGhc = true;
-            }];
+              packages.ghc.flags.ghci = pkgs.lib.mkForce true;
+              packages.ghci.flags.ghci = pkgs.lib.mkForce true;
+            })];
           };
       mkHieCore = args@{...}:
         let packages = mkPackages args;
-        in packages.ghcide.components.exes.ghcide;
+        in packages.ghcide.components.exes.ghcide // { inherit packages; };
     in { export = {
           # ghcide-ghc881 = mkHieCore pkgs.haskell.compiler.ghc881;
           ghcide-ghc865 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; };
