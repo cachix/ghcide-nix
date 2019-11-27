@@ -9,6 +9,8 @@ let
             stack-pkgs = import ./stack/pkgs.nix;
             pkg-def-extras = [];
             modules = [{
+                packages.ghc.flags.ghci = pkgs.lib.mkForce true;
+                packages.ghci.flags.ghci = pkgs.lib.mkForce true;
                 packages.ghcide.src = sources.ghcide;
                 ghc.package = ghc; 
                 compiler.version = pkgs.lib.mkForce ghc.version;
