@@ -2,16 +2,13 @@
   extras = hackage:
     {
       packages = {
-        "prettyprinter" = (((hackage.prettyprinter)."1.3.0").revisions).default;
-        "prettyprinter-ansi-terminal" = (((hackage.prettyprinter-ansi-terminal)."1.1.1.2").revisions).default;
-        "hslogger" = (((hackage.hslogger)."1.3.0.0").revisions).default;
-        "network-bsd" = (((hackage.network-bsd)."2.8.1.0").revisions).default;
+        "haskell-lsp" = (((hackage.haskell-lsp)."0.18.0.0").revisions).default;
+        "haskell-lsp-types" = (((hackage.haskell-lsp-types)."0.18.0.0").revisions).default;
+        "lsp-test" = (((hackage.lsp-test)."0.8.2.0").revisions).default;
+        "hie-bios" = (((hackage.hie-bios)."0.2.1").revisions).default;
         ghcide = ./ghcide.nix;
-        haskell-lsp = ./haskell-lsp.nix;
-        haskell-lsp-types = ./haskell-lsp-types.nix;
-        lsp-test = ./lsp-test.nix;
         };
       };
-  resolver = "nightly-2019-10-10";
+  resolver = "nightly-2019-09-16";
   modules = [ ({ lib, ... }: { packages = {}; }) { packages = {}; } ];
   }

@@ -15,10 +15,6 @@ let
                 ghc.package = ghc; 
                 compiler.version = pkgs.lib.mkForce ghc.version;
                 reinstallableLibGhc = true;
-                nonReinstallablePkgs =
-                  ["ghc-boot" "binary" "process" "bytestring" "containers" "directory"
-                   "filepath" "hpc" "ghci" "terminfo" "time" "transformers" "unix" "text" "base"
-                  ] ++ pkgs.lib.optionals (ghc.version == "8.8.1") [ "contravariant" ];
             }];
           };
         in pkgSet.config.hsPkgs;

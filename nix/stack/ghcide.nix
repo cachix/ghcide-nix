@@ -42,7 +42,7 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
     flags = { ghc-lib = false; };
     package = {
       specVersion = "1.20";
-      identifier = { name = "ghcide"; version = "0.0.3"; };
+      identifier = { name = "ghcide"; version = "0.0.4"; };
       license = "Apache-2.0";
       copyright = "Digital Asset 2018-2019";
       maintainer = "Digital Asset";
@@ -126,11 +126,14 @@ in { system, compiler, flags, pkgs, hsPkgs, pkgconfPkgs, ... }:
         "ghcide-tests" = {
           depends = [
             (hsPkgs."base" or (buildDepError "base"))
+            (hsPkgs."bytestring" or (buildDepError "bytestring"))
             (hsPkgs."containers" or (buildDepError "containers"))
             (hsPkgs."directory" or (buildDepError "directory"))
             (hsPkgs."extra" or (buildDepError "extra"))
             (hsPkgs."filepath" or (buildDepError "filepath"))
             (hsPkgs."ghc" or (buildDepError "ghc"))
+            (hsPkgs."ghcide" or (buildDepError "ghcide"))
+            (hsPkgs."ghc-typelits-knownnat" or (buildDepError "ghc-typelits-knownnat"))
             (hsPkgs."haskell-lsp-types" or (buildDepError "haskell-lsp-types"))
             (hsPkgs."lens" or (buildDepError "lens"))
             (hsPkgs."lsp-test" or (buildDepError "lsp-test"))
