@@ -28,3 +28,12 @@ environment.systemPackages = [
 ## Why does this repo sit in hercules-ci organization?
 
 It was the easiest to setup, it will [hopefully merge with ghcide](https://github.com/digital-asset/ghcide/issues/56)
+
+## How to update?
+
+    nix-shell
+    niv update ghcide -b TAG
+
+or for unreleased:
+
+    niv update ghcide -b master

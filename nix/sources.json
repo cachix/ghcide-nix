@@ -1,14 +1,14 @@
 {
     "ghcide": {
-        "branch": "master",
+        "branch": "v0.0.4",
         "description": "A library for building Haskell IDE tooling",
         "homepage": "",
         "owner": "digital-asset",
         "repo": "ghcide",
-        "rev": "cec3159ace4c430ccb6f58733245e67f7ebe30fb",
-        "sha256": "02c14ikba8lyi91dw0iyp072a9gqq82nms83hddkxf7y6i8m4a33",
+        "rev": "58b997d1aa74b4bef7997aa96528b14eab641033",
+        "sha256": "1hx52yih744xh7zsalxv1ifsbdl6imc6620apr65ma93l2q9i02c",
         "type": "tarball",
-        "url": "https://github.com/digital-asset/ghcide/archive/cec3159ace4c430ccb6f58733245e67f7ebe30fb.tar.gz",
+        "url": "https://github.com/digital-asset/ghcide/archive/58b997d1aa74b4bef7997aa96528b14eab641033.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "haskell.nix": {
@@ -17,10 +17,10 @@
         "homepage": "https://input-output-hk.github.io/haskell.nix",
         "owner": "input-output-hk",
         "repo": "haskell.nix",
-        "rev": "ff4958c3eacf44a124407055da452fc6840fbc2a",
-        "sha256": "1z3vs3175nv88xkhsxbdmnnyb3w1i4ih1zqlhyxw0rg5yhnclq2a",
+        "rev": "10e4f53390b4a18b5d8133f4fc5ce9093201eec3",
+        "sha256": "0z4pq1b3rqhjrb2qlp7hfinyy0hsp3dbrbyvdzqpgjsgxv1zka2h",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/haskell.nix/archive/ff4958c3eacf44a124407055da452fc6840fbc2a.tar.gz",
+        "url": "https://github.com/input-output-hk/haskell.nix/archive/10e4f53390b4a18b5d8133f4fc5ce9093201eec3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
