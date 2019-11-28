@@ -7,7 +7,7 @@ let
 in
   dimension "System" {
     "x86_64-linux" = {};
-    # "x86_64-darwin" = {};
+    "x86_64-darwin" = {};
   } (system: {}:
 
     import ../default.nix {
