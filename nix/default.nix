@@ -17,17 +17,24 @@ let
               packages.ghci.flags.ghci = pkgs.lib.mkForce true;
               # This fixes a performance issue, probably https://gitlab.haskell.org/ghc/ghc/issues/15524
               packages.ghcide.configureFlags = [ "--enable-executable-dynamic" ];
-              packages.haskell-lsp.components.library.doHaddock = pkgs.lib.mkForce false;
               packages.ghcide.components.library.doHaddock = pkgs.lib.mkForce false;
+              # Since GHC 8.8. Fix available but not released: https://github.com/blamario/monoid-subclasses/commit/2d3641af4b47fd448cc7c57940cb97c185cf0678
+              packages.monoid-subclasses.components.library.doHaddock = pkgs.lib.mkForce false;
+                nonReinstallablePkgs = [ "Cabal" "array" "base" "binary" "bytestring" "containers" "deepseq"
+                                         "directory" "filepath" "ghc" "ghc-boot" "ghc-boot-th" "ghc-compact"
+                                         "ghc-heap" "ghc-prim" "ghci" "haskeline" "hpc" "integer-gmp"
+                                         "libiserv" "mtl" "parsec" "pretty" "process" "rts" "stm"
+                                         "template-haskell" "terminfo" "text" "time" "transformers" "unix"
+                                         "xhtml"
+                                         ];
             })];
           };
       mkGhcide = args@{...}:
         let packages = mkPackages ({ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; } // args);
         in packages.ghcide.components.exes.ghcide // { inherit packages; };
     in { export = {
-          # ghcide-ghc881 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc881; stackYaml = "stack88.yaml"; };
+          ghcide-ghc883 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc883; stackYaml = "stack88.yaml"; };
           ghcide-ghc865 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; };
-          ghcide-ghc864 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc864; stackYaml = "stack.yaml"; };
           ghcide-ghc844 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc844; stackYaml = "stack84.yaml"; };
           hie-bios = (mkPackages { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; }).hie-bios.components.exes.hie-bios;
           inherit mkGhcide;
