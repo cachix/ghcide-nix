@@ -7,7 +7,12 @@
 
 ## 2. Install ghcide
 
-Currently available for `ghc865`, `ghc864` and `ghc844`:
+Current packages:
+
+* ghcide-ghc882
+* ghcide-ghc865
+* ghcide-ghc864
+* ghcide-ghc844
 
 ### On NixOS
 
