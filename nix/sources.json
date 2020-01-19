@@ -1,14 +1,14 @@
 {
     "ghcide": {
-        "branch": "v0.0.6",
+        "branch": "master",
         "description": "A library for building Haskell IDE tooling",
         "homepage": "",
         "owner": "digital-asset",
         "repo": "ghcide",
-        "rev": "1b4cd9d8d7cf1ec12677e0e6877b8e8b3c74460f",
-        "sha256": "1a84n0pglqnkcj8llmpbqfb0pzchf0g8injpjlx6af90k43g7n4p",
+        "rev": "85b83777bf723f39eecc3812d6e343abe6d03e7b",
+        "sha256": "1wqvkkash8xnlzzcrs6pw86nis7qclhv6bqvj1mqb9vql7rzkgig",
         "type": "tarball",
-        "url": "https://github.com/digital-asset/ghcide/archive/1b4cd9d8d7cf1ec12677e0e6877b8e8b3c74460f.tar.gz",
+        "url": "https://github.com/digital-asset/ghcide/archive/85b83777bf723f39eecc3812d6e343abe6d03e7b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "haskell.nix": {
