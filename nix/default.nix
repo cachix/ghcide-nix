@@ -19,8 +19,8 @@ let
               packages.ghcide.configureFlags = [ "--enable-executable-dynamic" ];
             })];
           };
-      mkGhcide = args@{ghc ? pkgs.haskell-nix.compiler.ghc865, stackYaml ? "stack.yaml"}:
-        let packages = mkPackages args;
+      mkGhcide = args@{...}:
+        let packages = mkPackages ({ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; } // args);
         in packages.ghcide.components.exes.ghcide // { inherit packages; };
     in { export = {
           # ghcide-ghc881 = mkHieCore { ghc = pkgs.haskell-nix.compiler.ghc881; stackYaml = "stack88.yaml"; };
