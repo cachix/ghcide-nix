@@ -9,10 +9,11 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - run: sudo rm -rf /opt || true
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v8
     - uses: cachix/cachix-action@v6
       with:
         name: ghcide-nix
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-    - run: nix-build -j8 --cores 1 -vv
+    - run: nix-build 
