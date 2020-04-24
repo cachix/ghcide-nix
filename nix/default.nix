@@ -20,13 +20,13 @@ let
               packages.ghcide.components.library.doHaddock = pkgs.lib.mkForce false;
               # Since GHC 8.8. Fix available but not released: https://github.com/blamario/monoid-subclasses/commit/2d3641af4b47fd448cc7c57940cb97c185cf0678
               packages.monoid-subclasses.components.library.doHaddock = pkgs.lib.mkForce false;
-                nonReinstallablePkgs = [ "Cabal" "array" "base" "binary" "bytestring" "containers" "deepseq"
-                                         "directory" "filepath" "ghc" "ghc-boot" "ghc-boot-th" "ghc-compact"
-                                         "ghc-heap" "ghc-prim" "ghci" "haskeline" "hpc" "integer-gmp"
-                                         "libiserv" "mtl" "parsec" "pretty" "process" "rts" "stm"
-                                         "template-haskell" "terminfo" "text" "time" "transformers" "unix"
-                                         "xhtml"
-                                         ];
+              nonReinstallablePkgs = [ "Cabal" "array" "binary" "base" "bytestring" "containers" "deepseq"
+                                       "directory" "filepath" "ghc-boot" "ghc-boot-th" "ghc-compact"
+                                       "ghc-heap" "ghc-prim" "ghci" "haskeline" "hpc" "integer-gmp"
+                                       "libiserv" "mtl" "parsec" "pretty" "process" "rts" "stm"
+                                       "template-haskell" "terminfo" "text" "time" "transformers" "unix"
+                                       "xhtml"
+                                     ];
             })];
           };
       mkGhcide = args@{...}:
