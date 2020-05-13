@@ -10,6 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - run: sudo rm -rf /opt || true
+    - run: sudo rm -rf /usr/local || true
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v8
     - uses: cachix/cachix-action@v6
