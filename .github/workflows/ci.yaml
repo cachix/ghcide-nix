@@ -4,6 +4,7 @@ on:
   push:
 jobs:
   tests:
+    timeout-minutes: 420
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
