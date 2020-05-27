@@ -3,6 +3,7 @@
 ## 1. Use Cachix to avoid compilation (optional if you like compiling for 2h)
 
     $ nix-env -iA cachix -f https://cachix.org/api/v1/install
+    $ cachix use iohk
     $ cachix use ghcide-nix
 
 ## 2. Install ghcide
