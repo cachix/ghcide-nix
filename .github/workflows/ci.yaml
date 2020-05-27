@@ -4,14 +4,18 @@ on:
   push:
 jobs:
   tests:
+    timeout-minutes: 420
     strategy:
       matrix:
-        os: [ubuntu-18.04, macos]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - run: sudo rm -rf /opt || true
+    - run: sudo rm -rf /usr/local || true
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v8
-    - uses: cachix/cachix-action@v5
+    - uses: cachix/cachix-action@v6
       with:
         name: ghcide-nix
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+    - run: nix-build 
