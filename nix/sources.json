@@ -1,14 +1,14 @@
 {
     "ghcide": {
-        "branch": "ghc-8.8.3",
+        "branch": "0.2.0-ghc883",
         "description": "A library for building Haskell IDE tooling",
         "homepage": "",
         "owner": "cachix",
         "repo": "ghcide",
-        "rev": "b49efd6dbe85453695a12801d60f8166077374f7",
-        "sha256": "1pc9gqs4n54iqns957glkcvxs7cb1f4fgspv65vkwzrvz5zlvn6b",
+        "rev": "4b8cd432690dbceb149fb416eadff7e43b652f3a",
+        "sha256": "0vxz65gzwd77j54z2w3dgniycwd0741vrwc3dfgkx4iy0sx04jcr",
         "type": "tarball",
-        "url": "https://github.com/cachix/ghcide/archive/b49efd6dbe85453695a12801d60f8166077374f7.tar.gz",
+        "url": "https://github.com/cachix/ghcide/archive/4b8cd432690dbceb149fb416eadff7e43b652f3a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "haskell.nix": {
