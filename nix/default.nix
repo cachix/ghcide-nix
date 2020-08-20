@@ -20,9 +20,9 @@ let
           packages.ghcide.components.library.doHaddock = pkgs.lib.mkForce false;
         })];
       };
-  mkGhcide = args@{...}:
+  mkGhcide = args@{ ghc, stackYaml }:
     let 
-      packages = mkPackages ({ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; } // args);
+      packages = mkPackages args;
     in packages.ghcide.components.exes.ghcide // { inherit packages; };
   
   devTools = {
