@@ -30,8 +30,8 @@ let
   };
 in { 
   export = {
-    ghcide-ghc883 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc883; stackYaml = "stack88.yaml"; };
     ghcide-ghc865 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; };
+    ghcide-ghc884 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc884; stackYaml = "stack88.yaml"; };
     ghcide-ghc8102 = mkGhcide { ghc = pkgs.haskell-nix.compiler.ghc8102; stackYaml = "stack810.yaml"; };
     hie-bios = (mkPackages { ghc = pkgs.haskell-nix.compiler.ghc865; stackYaml = "stack.yaml"; }).hie-bios.components.exes.hie-bios;
     inherit mkGhcide;
