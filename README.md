@@ -13,13 +13,13 @@ Currently available for `ghc8102`, `ghc884` and `ghc865`:
 
 ```nix
 environment.systemPackages = [
-  (import (builtins.fetchTarball "https://github.com/cachix/ghcide-nix/tarball/master") {}).ghcide-ghc883
+  (import (builtins.fetchTarball "https://github.com/cachix/ghcide-nix/tarball/master") {}).ghcide-ghc884
 ];
 ```
 
 ### With Nix
 
-    $ nix-env -iA ghcide-ghc883 -f https://github.com/cachix/ghcide-nix/tarball/master
+    $ nix-env -iA ghcide-ghc884 -f https://github.com/cachix/ghcide-nix/tarball/master
 
 ## 3. [Continue by following upstream instructions](https://github.com/digital-asset/ghcide#test-ghcide)
 
