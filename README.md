@@ -7,7 +7,7 @@
 
 ## 2. Install ghcide
 
-Currently available for `ghc8102`, `ghc883`, `ghc865` and `ghc844`:
+Currently available for `ghc8102`, `ghc884` and `ghc865`:
 
 ### On NixOS
 
